@@ -38,12 +38,47 @@
             </div>
           </div>
         <div class="buttons">
-            <button class="play-btn" onclick="startGame()">GET SIGNAL</button>
+            <!-- Changed onclick to openScannerModal -->
+            <button class="play-btn" onclick="openScannerModal()">GET SIGNAL</button>
             <div id="timerDisplay" class="timer-display"></div>
         </div>
         <div id="winPopup" class="win-popup">
             <h2>SIGNAL</h2>
-            <p>x <span id="multiplierValue"></span></p> <!-- Изменено на x -->
+            <p>x <span id="multiplierValue"></span></p>
+        </div>
+    </div>
+
+    <!-- Added scanner modal -->
+    <div id="scannerModal" class="scanner-modal">
+        <div class="scanner-content">
+            <button class="close-modal" onclick="closeScannerModal()">&times;</button>
+            <h2>Scan Game</h2>
+            
+            <div id="cameraView" class="camera-view">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="scanner-line"></div>
+            </div>
+            
+            <div id="scanningAnimation" class="scanning-animation" style="display: none;">
+                <div class="scan-loader"></div>
+                <p>Scanning game...</p>
+            </div>
+            
+            <div id="scanResult" class="scan-result" style="display: none;">
+                <div class="success-icon">✓</div>
+                <p>Game scanned successfully!</p>
+            </div>
+            
+            <div class="scanner-buttons">
+                <button class="scanner-btn" onclick="captureFromCamera()">
+                    <span>📷</span> Scan Now
+                </button>
+                <label class="scanner-btn file-upload-btn">
+                    <span>🖼️</span> Choose from Gallery
+                    <input type="file" id="fileInput" accept="image/*" onchange="handleFileSelect(event)" style="display: none;">
+                </label>
+            </div>
         </div>
     </div>
 
