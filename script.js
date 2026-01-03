@@ -193,7 +193,7 @@ function showWinPopup(multiplierAmount) {
     popup.style.display = "none"
     popup.classList.remove("shake")
     gameInProgress = false
-  }, 8000)
+  }, 13000)
 }
 
 // Close popup function
