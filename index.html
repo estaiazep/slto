@@ -7,11 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Animated gradient background -->
+    <div class="animated-bg"></div>
+    
     <div class="game-container">
+        <!-- Difficulty buttons -->
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn easy active">EASY</button>
+            <button class="difficulty-btn medium">MEDIUM</button>
+            <button class="difficulty-btn hard">HARD</button>
+            <button class="difficulty-btn hardcode">HARDCODE</button>
+        </div>
+
         <img src="logo.svg" class="game-logo" alt="Game Logo">
         <div class="scroll-container">
             <div class="game-area" id="gameArea">
-              <img src="chicken.webp" id="chicken" class="chicken" alt="Chicken">
+              <!-- Chicken with glow effect -->
+              <div class="chicken-wrapper" id="chickenWrapper">
+                <div class="chicken-glow"></div>
+                <img src="chicken.webp" id="chicken" class="chicken" alt="Chicken">
+              </div>
               <div class="multiplier-circle">1.03x</div>
               <div class="multiplier-circle">1.07x</div>
               <div class="multiplier-circle">1.12x</div>
@@ -38,7 +53,6 @@
             </div>
           </div>
         <div class="buttons">
-            <!-- Changed onclick to openScannerModal -->
             <button class="play-btn" onclick="openScannerModal()">GET SIGNAL</button>
             <div id="timerDisplay" class="timer-display"></div>
         </div>
@@ -48,7 +62,7 @@
         </div>
     </div>
 
-    <!-- Added scanner modal -->
+    <!-- Scanner modal -->
     <div id="scannerModal" class="scanner-modal">
         <div class="scanner-content">
             <button class="close-modal" onclick="closeScannerModal()">&times;</button>
@@ -92,5 +106,14 @@
     </div>    
     
     <script src="script.js"></script>
+    <script>
+        // Difficulty buttons click handler (decorative only)
+        document.querySelectorAll('.difficulty-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
